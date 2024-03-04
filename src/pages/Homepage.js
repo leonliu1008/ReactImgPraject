@@ -7,6 +7,7 @@ const Homepage = () => {
   let [input, setInput] = useState(""); // 從Search input得到即時改變的值
   let [data, setData] = useState(null);
   let [page, setPage] = useState(1);
+  let [currentSearch, setCurrentSearch] = useState("");
   const auth = "Feh1WX5hjU5tbT4ETVjKMHiDLzwUtPoBhx6efeIY2rZgu8iDbAUNVGuI";
   // https://api.pexels.com/v1/curated =>curated?page=1&per_page=15
   // API設定 拿第1個頁面的15張照片
@@ -20,17 +21,21 @@ const Homepage = () => {
     });
     console.log(result);
     setData(result.data.photos); // 觸發setData 就會使頁面重新渲染,所以底下的data.map也會有值,就會啟動
+    setCurrentSearch(input);
   };
 
+  // Closure
   const morePicture = async () => {
     let newURL;
-    setPage(page + 1);
+    setPage(page + 1); // 產生Closure
     // 判斷更新更多圖片要使用更多精選圖片,還是搜尋正在搜尋的
     // 可以判斷input欄位有沒有值
-    if (input === "") {
-      newURL = `https://api.pexels.com/v1/curated?page=${page}&per_page=15`;
+    if (currentSearch === "") {
+      newURL = `https://api.pexels.com/v1/curated?page=${page + 1}&per_page=15`;
     } else {
-      newURL = `https://api.pexels.com/v1/search?query=${input}&per_page=15&page=${page}`;
+      newURL = `https://api.pexels.com/v1/search?query=${currentSearch}&per_page=15&page=${
+        page + 1
+      }`;
     }
     let result = await axios.get(newURL, {
       headers: { Authorization: auth },
