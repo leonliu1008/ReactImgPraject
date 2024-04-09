@@ -94,4 +94,27 @@ nav ul li a {
 }
 .pictures .picture .imageContainer img:hover {
   transform: scale(1.25);
+}
+
+.about {
+  padding: 20px;
+  background-color: rgb(245, 232, 209);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #4e4d4d;
+  text-align: center;
+}
+.about p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #777;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

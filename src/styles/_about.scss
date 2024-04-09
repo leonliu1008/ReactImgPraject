@@ -1,0 +1,26 @@
+.about {
+  padding: 20px;
+  background-color: rgb(245, 232, 209);
+  min-height: 100vh;
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #4e4d4d;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #777;
+    text-align: center;
+  }
+
+  // Centering content
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
